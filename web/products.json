@@ -1,0 +1,42 @@
+[
+  {
+    "sku": "BL-001",
+    "name": "Cordones encerados TronX",
+    "desc": "Cera 100% parafina líquida pura para que entren más fácil en el patín. Diseño triple striker, hilo de construcción resistente y puntas moldeadas que evitan que se deshilachen. Ancho 3/8\". Disponibles en 120\" y 132\", color blanco o negro.",
+    "price": 11000,
+    "inStock": true,
+    "tag": "Más vendido",
+    "images": ["img/cordones-pack.png", "img/cordones-blanco.png", "img/cordones-negro.png"],
+    "visual": "laces"
+  },
+  {
+    "sku": "BL-002",
+    "name": "Pack 3 cintas para palo TronX",
+    "desc": "Tres rollos de cinta de algodón tejido con tecnología super grip y adhesivo de alto agarre. Crea una barrera contra la humedad entre el hielo y la pala. Sirve para pala, mango y otros usos. 2,5 cm de ancho × 25,5 m cada rollo. Disponible en blanco o negro.",
+    "price": 35000,
+    "inStock": false,
+    "tag": "Combo",
+    "images": ["img/cinta-negra.png", "img/cinta-blanca.png"],
+    "visual": "tape"
+  },
+  {
+    "sku": "BL-003",
+    "name": "Cera transparente TronX Premium",
+    "desc": "Cera de alta calidad para sellar la cinta de la pala. Mantiene el puck sobre la pala evitando acumulación de nieve y prolonga la vida útil del taping. Aroma a coco — mantiene fresca la bolsa también. Lata reutilizable de 80 g.",
+    "price": 30000,
+    "inStock": false,
+    "tag": "",
+    "images": ["img/cera-cerrada.png", "img/cera-abierta.png"],
+    "visual": "wax"
+  },
+  {
+    "sku": "BL-004",
+    "name": "Pack 6 cintas clear Alkali",
+    "desc": "Pack de 6 rollos. Polietileno elastizado, gruesa y resistente. Adhesivo transparente y de alto agarre, no se rompe cuando no querés que se rompa. Hecha en USA. 2,5 cm × 30 m cada rollo. También se vende por unidad a $15.000.",
+    "price": 80000,
+    "inStock": false,
+    "tag": "",
+    "images": ["img/clear-tape.png"],
+    "visual": "padtape"
+  }
+]
