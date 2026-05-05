@@ -161,6 +161,14 @@ nav.top {
   transition: width 0.25s ease;
 }
 .nav__links a:hover::after { width: 100%; }
+.nav__links a.active {
+  color: var(--cream);
+  opacity: 1;
+}
+.nav__links a.active::after {
+  width: 100%;
+  background: var(--ice);
+}
 .nav__cta {
   display: inline-flex;
   align-items: center;
@@ -1245,6 +1253,52 @@ html, body { max-width: 100vw; overflow-x: hidden; }
   outline-offset: 2px;
 }
 
+
+/* ===== FOOTER MINI-CTA ===== */
+.footer-cta {
+  background: var(--ink-3);
+  border: 1px solid var(--line-soft);
+  padding: 2rem;
+  margin-bottom: 3rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+}
+.footer-cta p {
+  font-family: var(--serif);
+  font-size: 1.1rem;
+  font-weight: 350;
+  color: var(--cream-dim);
+  margin: 0;
+}
+.footer-cta__link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: #25D366;
+  color: white !important;
+  padding: 0.75rem 1.4rem;
+  font-family: var(--display);
+  font-size: 0.9rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  transition: background 0.2s, transform 0.15s;
+  white-space: nowrap;
+}
+.footer-cta__link:hover {
+  background: #128C7E;
+  transform: translateY(-1px);
+}
+@media (max-width: 600px) {
+  .footer-cta {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+    padding: 1.5rem;
+  }
+}
 </style>
 </head>
 <body data-wa="5491155557777">
@@ -1279,9 +1333,9 @@ html, body { max-width: 100vw; overflow-x: hidden; }
       <a href="#como-comprar">Cómo comprar</a>
       <a href="#faq">FAQ</a>
     </div>
-    <a class="nav__cta" id="navCta" href="#">
-      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347zM12 0C5.373 0 0 5.373 0 12c0 2.114.546 4.103 1.504 5.832L0 24l6.305-1.654A11.93 11.93 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0z"/></svg>
-      Hacer pedido
+    <a class="nav__cta" id="navCta" href="#" style="background:none;border:1px solid var(--line);color:var(--cream-dim);">
+      <svg viewBox="0 0 24 24" fill="currentColor" width="14" height="14"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347zM12 0C5.373 0 0 5.373 0 12c0 2.114.546 4.103 1.504 5.832L0 24l6.305-1.654A11.93 11.93 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0z"/></svg>
+      WhatsApp ↗
     </a>
   </div>
 </nav>
@@ -1553,6 +1607,13 @@ html, body { max-width: 100vw; overflow-x: hidden; }
 
 <footer>
   <div class="foot">
+    <div class="footer-cta">
+      <p>¿No encontraste lo que buscás?</p>
+      <a class="footer-cta__link" id="footerCtaWa" href="#" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347zM12 0C5.373 0 0 5.373 0 12c0 2.114.546 4.103 1.504 5.832L0 24l6.305-1.654A11.93 11.93 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0z"/></svg>
+        Escribinos por WhatsApp
+      </a>
+    </div>
     <div class="foot__top">
       <div class="foot__brand">
         <h3>BLUE<br>LINE<em>hockey · ar</em></h3>
@@ -1862,6 +1923,33 @@ fetch("products.json", { cache: "no-cache" })
     `;
   });
 
+
+  // === Nav activo al scrollear ===
+  const navSections = document.querySelectorAll('section[id]');
+  const navLinks2 = document.querySelectorAll('.nav__links a[href^="#"]');
+  const navObserver = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          navLinks2.forEach((link) => {
+            link.classList.toggle(
+              'active',
+              link.getAttribute('href') === `#${entry.target.id}`
+            );
+          });
+        }
+      });
+    },
+    { rootMargin: '-40% 0px -55% 0px' }
+  );
+  navSections.forEach((s) => navObserver.observe(s));
+
+  // Footer CTA WA link
+  const footerCtaEl = document.getElementById('footerCtaWa');
+  if (footerCtaEl) {
+    footerCtaEl.href = waLink('Hola%2C+busco+un+producto+que+no+est%C3%A1+en+el+cat%C3%A1logo');
+    footerCtaEl.target = '_blank';
+  }
 </script>
 </body>
 </html>
