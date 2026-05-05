@@ -3,8 +3,8 @@
     "sku": "BL-001",
     "name": "Cordones encerados TronX",
     "desc": "Cera 100% parafina líquida pura para que entren más fácil en el patín. Diseño triple striker, hilo de construcción resistente y puntas moldeadas que evitan que se deshilachen. Ancho 3/8\". Disponibles en 120\" y 132\", color blanco o negro.",
-    "price": 11000,
-    "inStock": true,
+    "price": 14000,
+    "inStock": false,
     "tag": "Más vendido",
     "images": ["img/cordones-pack.png", "img/cordones-blanco.png", "img/cordones-negro.png"],
     "visual": "laces"
