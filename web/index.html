@@ -1828,8 +1828,17 @@ function renderProducts(products) {
                   if (swatch) {
                           card.querySelectorAll('.color-swatch').forEach(b => b.classList.remove('is-active'));
                                   swatch.classList.add('is-active');
-                                          const vizDiv = card.querySelector('.viz');
-                                                  if (vizDiv) vizDiv.innerHTML = '<img src="' + swatch.dataset.img + '" alt="" loading="lazy" class="product__img">';
+const gallery = card.querySelector('.gallery');
+            if (gallery) {
+                          var imgs = gallery.querySelectorAll('.gallery__img');
+                                        var idx = -1;
+                                                      imgs.forEach(function(img, i) { if (img.getAttribute('src') === swatch.dataset.img) idx = i; });
+                                                                    if (idx >= 0) {
+                                                                                    gallery.dataset.current = idx;
+                                                                                                    imgs.forEach(function(img, i) { img.classList.toggle('is-active', i === idx); });
+                                                                                                                    gallery.querySelectorAll('.gallery__dot').forEach(function(dot, i) { dot.classList.toggle('is-active', i === idx); });
+                                                                                                                                  }
+                                                                                                                                              }
                                                           return;
                                                                 }
       if (e.target.closest(".gallery__nav") || e.target.closest(".product__btn")) return;
