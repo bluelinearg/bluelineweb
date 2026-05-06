@@ -7,7 +7,8 @@
     "inStock": false,
     "tag": "Más vendido",
     "images": ["img/cordones-pack.png", "img/cordones-blanco.png", "img/cordones-negro.png"],
-    "visual": "laces"
+    "visual": "laces",
+    "colors": [{"label": "Blanco", "img": "img/cordones-blanco.png", "bg": "#fff"}, {"label": "Negro", "img": "img/cordones-negro.png", "bg": "#111"}]
   },
   {
     "sku": "BL-002",
@@ -17,7 +18,8 @@
     "inStock": false,
     "tag": "Combo",
     "images": ["img/cinta-negra.png", "img/cinta-blanca.png"],
-    "visual": "tape"
+    "visual": "tape",
+    "colors": [{"label": "Negro", "img": "img/cinta-negra.png", "bg": "#111"}, {"label": "Blanco", "img": "img/cinta-blanca.png", "bg": "#fff"}]
   },
   {
     "sku": "BL-003",

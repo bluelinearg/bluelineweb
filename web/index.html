@@ -637,6 +637,10 @@ section { scroll-margin-top: 80px; }
   background: var(--cream);
   transform: scale(1.35);
 }
+.color-swatches { display: flex; gap: 8px; justify-content: center; padding: 8px 0 4px; }
+.color-swatch { width: 22px; height: 22px; border-radius: 50%; border: 2px solid transparent; cursor: pointer; transition: transform 0.2s, border-color 0.2s; outline: none; }
+.color-swatch:hover { transform: scale(1.15); }
+.color-swatch.is-active { border-color: var(--ice); transform: scale(1.15); box-shadow: 0 0 0 1px var(--ice); }
 
 /* imagen única dentro del visual */
 .product__img {
@@ -1798,9 +1802,13 @@ function renderProducts(products) {
     const btnText = p.inStock ? "Pedir" : "Avisame";
     const stockLabel = p.inStock ? "STOCK" : "SIN STOCK";
 
+            const colorSwatchHtml = (p.colors && p.colors.length > 0)
+                      ? '<div class="color-swatches">' + p.colors.map((c,i)=>'<button type="button" class="color-swatch' + (i===0?' is-active':'') + '" data-img="' + c.img + '" style="background:' + c.bg + '" title="' + c.label + '" aria-label="' + c.label + '"></button>').join('') + '</div>'
+                                : '';
     card.innerHTML = `
       ${tagHtml}
       <div class="product__visual"><div class="viz">${makeVisual(p)}</div></div>
+            ${colorSwatchHtml}
       <div class="product__body">
         <div class="product__sku"><span>${p.sku}</span><span>${stockLabel}</span></div>
         <h3 class="product__name">${p.name}</h3>
@@ -1816,6 +1824,14 @@ function renderProducts(products) {
     `;
 
     card.addEventListener("click", (e) => {
+            const swatch = e.target.closest('.color-swatch');
+                  if (swatch) {
+                          card.querySelectorAll('.color-swatch').forEach(b => b.classList.remove('is-active'));
+                                  swatch.classList.add('is-active');
+                                          const vizDiv = card.querySelector('.viz');
+                                                  if (vizDiv) vizDiv.innerHTML = '<img src="' + swatch.dataset.img + '" alt="" loading="lazy" class="product__img">';
+                                                          return;
+                                                                }
       if (e.target.closest(".gallery__nav") || e.target.closest(".product__btn")) return;
       window.open(href, "_blank", "noopener");
     });
