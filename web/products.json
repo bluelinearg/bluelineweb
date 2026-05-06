@@ -25,8 +25,8 @@
     "sku": "BL-003",
     "name": "Cera transparente TronX Premium",
     "desc": "Cera de alta calidad para sellar la cinta de la pala. Mantiene el puck sobre la pala evitando acumulación de nieve y prolonga la vida útil del taping. Aroma a coco — mantiene fresca la bolsa también. Lata reutilizable de 80 g.",
-    "price": 30000,
-    "inStock": false,
+    "price": 35000,
+    "inStock": true,
     "tag": "",
     "images": ["img/cera-cerrada.png", "img/cera-abierta.png"],
     "visual": "wax"
@@ -35,8 +35,8 @@
     "sku": "BL-004",
     "name": "Pack 6 cintas clear Alkali",
     "desc": "Pack de 6 rollos. Polietileno elastizado, gruesa y resistente. Adhesivo transparente y de alto agarre, no se rompe cuando no querés que se rompa. Hecha en USA. 2,5 cm × 30 m cada rollo. También se vende por unidad a $15.000.",
-    "price": 80000,
-    "inStock": false,
+    "price": 190000,
+    "inStock": true,
     "tag": "",
     "images": ["img/clear-tape.png"],
     "visual": "padtape"
