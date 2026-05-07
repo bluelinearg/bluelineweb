@@ -446,13 +446,12 @@ section { scroll-margin-top: 80px; }
     transform: translateY(-4px);
     box-shadow: 0 12px 32px rgba(75, 169, 194, 0.12);
   }
-  .product:hover .product__visual { transform: scale(1.04); }
+  .product:hover .product__visual .viz { transform: scale(1.04); }
 }
 .product__visual {
   aspect-ratio: 4/3;
   position: relative;
   overflow: hidden;
-  transition: transform 0.5s ease;
   border-bottom: 1px solid var(--line-soft);
 }
 .product__body {
@@ -667,7 +666,7 @@ section { scroll-margin-top: 80px; }
     transform: none;
     box-shadow: none;
   }
-  .product--out:hover .product__visual { transform: none; }
+  .product--out:hover .product__visual .viz { transform: none; }
 }
 .product--out .product__visual {
   filter: grayscale(60%) brightness(0.85);
@@ -719,6 +718,42 @@ section { scroll-margin-top: 80px; }
   }
 }
 
+/* === BADGE NEON — ÚLTIMA UNIDAD === */
+.product__last-unit {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 6;
+  text-align: center;
+  padding: 7px 12px;
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  background: rgba(10, 12, 16, 0.78);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  color: #00f0ff;
+  border-top: 1.5px solid #00f0ff;
+  text-shadow: 0 0 6px #00f0ff, 0 0 14px #00f0ff;
+  box-shadow: 0 0 8px rgba(0,240,255,0.5), 0 0 22px rgba(0,240,255,0.2), inset 0 0 8px rgba(0,240,255,0.08);
+  animation: neon-flicker-ice 2.8s ease-in-out infinite;
+  pointer-events: none;
+}
+@keyframes neon-flicker-ice {
+  0%, 18%, 22%, 26%, 53%, 57%, 100% {
+    text-shadow: 0 0 6px #00f0ff, 0 0 14px #00f0ff, 0 0 30px #00f0ff;
+    box-shadow: 0 0 8px rgba(0,240,255,0.7), 0 0 22px rgba(0,240,255,0.45), 0 0 44px rgba(0,240,255,0.2), inset 0 0 8px rgba(0,240,255,0.12);
+    opacity: 1;
+  }
+  20%, 24%, 55% {
+    text-shadow: none;
+    box-shadow: none;
+    opacity: 0.5;
+  }
+}
+
 /* =================================================================
    PLACEHOLDERS VISUALES (cuando no hay foto)
    ================================================================= */
@@ -730,6 +765,7 @@ section { scroll-margin-top: 80px; }
   align-items: center;
   justify-content: center;
   overflow: hidden;
+  transition: transform 0.5s ease;
 }
 .viz svg { width: 100%; height: 100%; }
 
@@ -1678,12 +1714,12 @@ function makeVisual(p) {
   const imgs = (p.images || []).filter(i => i && i.trim());
 
   if (imgs.length === 1) {
-    return `<img src="${imgs[0]}" alt="${p.name}" loading="lazy" class="product__img" />`;
+    return `<img src="${imgs[0]}" alt="${p.name}" loading="lazy" class="product__img" onerror="this.style.opacity='0'" />`;
   }
 
   if (imgs.length > 1) {
     const slides = imgs.map((src, i) =>
-      `<img src="${src}" alt="${p.name} (${i+1}/${imgs.length})" loading="${i === 0 ? 'eager' : 'lazy'}" class="gallery__img${i === 0 ? ' is-active' : ''}" />`
+      `<img src="${src}" alt="${p.name} (${i+1}/${imgs.length})" loading="${i === 0 ? 'eager' : 'lazy'}" class="gallery__img${i === 0 ? ' is-active' : ''}" onerror="this.style.opacity='0';this.classList.remove('is-active')" />`
     ).join('');
     const dots = imgs.map((_, i) =>
       `<span class="gallery__dot${i === 0 ? ' is-active' : ''}"></span>`
@@ -1826,6 +1862,10 @@ function renderProducts(products) {
       ? `<span class="product__tag product__tag--out">Agotado</span>`
       : (p.tag ? `<span class="${tagClass}">${p.tag}</span>` : "");
 
+    const lastUnitHtml = (p.stock === 1)
+      ? `<div class="product__last-unit">⚡ ÚLTIMA UNIDAD DISPONIBLE ⚡</div>`
+      : '';
+
     const btnText = p.inStock ? "Pedir" : "Avisame";
     const stockLabel = p.inStock ? "STOCK" : "SIN STOCK";
 
@@ -1834,7 +1874,7 @@ function renderProducts(products) {
                                 : '';
     card.innerHTML = `
       ${tagHtml}
-      <div class="product__visual"><div class="viz">${makeVisual(p)}</div></div>
+      <div class="product__visual"><div class="viz">${makeVisual(p)}</div>${lastUnitHtml}</div>
             ${colorSwatchHtml}
       <div class="product__body">
         <div class="product__sku"><span>${p.sku}</span><span>${stockLabel}</span></div>

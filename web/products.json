@@ -37,6 +37,7 @@
     "desc": "Pack de 6 rollos. Polietileno elastizado, gruesa y resistente. Adhesivo transparente y de alto agarre, no se rompe cuando no querés que se rompa. Hecha en USA. 2,5 cm × 30 m cada rollo. También se vende por unidad a $35.000.",
     "price": 190000,
     "inStock": true,
+    "stock": 1,
     "tag": "",
     "images": ["img/clear-tape.png"],
     "visual": "padtape"
@@ -57,11 +58,12 @@
   {
     "sku": "BL-006",
     "name": "CCM Ribcor Trigger 9 PRO",
-    "desc": "Palo de hockey en excelente estado (usado). Top de línea de CCM. Flex 65 · Pala P28 · Altura 161 cm. ¡Última unidad disponible!",
+    "desc": "Palo de hockey en excelente estado (usado). Top de línea de CCM. Flex 65 · Pala P28 · Altura 161 cm.",
     "price": 300,
     "currency": "USD",
     "inStock": true,
-    "tag": "Última unidad",
+    "stock": 1,
+    "tag": "",
     "images": ["img/ccm-trigger9.png", "img/ccm-trigger9-pala.png"]
   }
 ]
