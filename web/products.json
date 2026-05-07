@@ -27,6 +27,7 @@
     "desc": "Cera de alta calidad para sellar la cinta de la pala. Mantiene el puck sobre la pala evitando acumulación de nieve y prolonga la vida útil del taping. Aroma a coco — mantiene fresca la bolsa también. Lata reutilizable de 80 g.",
     "price": 35000,
     "inStock": true,
+    "stock": 2,
     "tag": "",
     "images": ["img/cera-cerrada.png", "img/cera-abierta.png"],
     "visual": "wax"
@@ -58,7 +59,7 @@
   },
   {
     "sku": "BL-006",
-    "name": "CCM Ribcor Trigger 9 PRO",
+    "name": "CCM Ribcor Trigger 9 PRO (usado)",
     "desc": "Palo de hockey en excelente estado (usado). Top de línea de CCM. Flex 65 · Pala P28 · Altura 161 cm.",
     "price": 300,
     "currency": "USD",
