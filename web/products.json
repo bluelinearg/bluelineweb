@@ -40,5 +40,28 @@
     "tag": "",
     "images": ["img/clear-tape.png"],
     "visual": "padtape"
+  },
+  {
+    "sku": "BL-005",
+    "name": "Casaca Lisa Firstar",
+    "desc": "Casaca de hockey sobre hielo lisa. Cuello en V clásico, tejido técnico transpirable. Solo disponible en talle XL. ¡Últimas unidades disponibles!",
+    "price": 25000,
+    "inStock": true,
+    "tag": "Liquidación",
+    "images": ["img/casaca-firstar-negro.png", "img/casaca-firstar-rojo.png", "img/casaca-firstar-talles.png"],
+    "colors": [
+      {"label": "Negro", "img": "img/casaca-firstar-negro.png", "bg": "#111"},
+      {"label": "Rojo", "img": "img/casaca-firstar-rojo.png", "bg": "#cc0000"}
+    ]
+  },
+  {
+    "sku": "BL-006",
+    "name": "CCM Ribcor Trigger 9 PRO",
+    "desc": "Palo de hockey en excelente estado (usado). Top de línea de CCM. Flex 65 · Pala P28 · Altura 161 cm. ¡Última unidad disponible!",
+    "price": 300,
+    "currency": "USD",
+    "inStock": true,
+    "tag": "Última unidad",
+    "images": ["img/ccm-trigger9.png", "img/ccm-trigger9-pala.png"]
   }
 ]

@@ -529,10 +529,13 @@ section { scroll-margin-top: 80px; }
 .product:nth-child(2) { grid-column: span 5; }
 .product:nth-child(3) { grid-column: span 6; }
 .product:nth-child(4) { grid-column: span 6; }
+.product:nth-child(5) { grid-column: span 8; }
+.product:nth-child(6) { grid-column: span 4; }
 
 @media (max-width: 920px) {
   .product:nth-child(1), .product:nth-child(2),
-  .product:nth-child(3), .product:nth-child(4) {
+  .product:nth-child(3), .product:nth-child(4),
+  .product:nth-child(5), .product:nth-child(6) {
     grid-column: span 12;
   }
   .product:nth-child(1) .product__visual { aspect-ratio: 4/3; }
@@ -692,6 +695,28 @@ section { scroll-margin-top: 80px; }
   background: var(--ink-3);
   color: var(--cream);
   border: 1px solid var(--mute-2);
+}
+
+/* === LIQUIDACIÓN NEON BADGE === */
+.product__tag--liquidacion {
+  background: transparent;
+  color: #ff2a6d;
+  border: 1.5px solid #ff2a6d;
+  text-shadow: 0 0 6px #ff2a6d, 0 0 12px #ff2a6d;
+  box-shadow: 0 0 6px rgba(255,42,109,0.8), 0 0 18px rgba(255,42,109,0.4), inset 0 0 6px rgba(255,42,109,0.1);
+  animation: neon-flicker 3s ease-in-out infinite;
+}
+@keyframes neon-flicker {
+  0%, 18%, 22%, 26%, 53%, 57%, 100% {
+    text-shadow: 0 0 6px #ff2a6d, 0 0 14px #ff2a6d, 0 0 28px #ff2a6d;
+    box-shadow: 0 0 6px rgba(255,42,109,0.9), 0 0 18px rgba(255,42,109,0.5), 0 0 36px rgba(255,42,109,0.25), inset 0 0 6px rgba(255,42,109,0.15);
+    opacity: 1;
+  }
+  20%, 24%, 55% {
+    text-shadow: none;
+    box-shadow: none;
+    opacity: 0.65;
+  }
 }
 
 /* =================================================================
@@ -1789,15 +1814,17 @@ function renderProducts(products) {
     const card = document.createElement("div");
     card.className = "product" + (p.inStock ? "" : " product--out");
 
+    const priceLabel = p.currency === 'USD' ? 'USD ' + p.price : formatPrice(p.price);
     const orderText = p.inStock
-      ? `Hola! Quiero pedir: ${p.name} (${p.sku}) — ${formatPrice(p.price)}. ¿Cómo coordinamos?`
+      ? `Hola! Quiero pedir: ${p.name} (${p.sku}) — ${priceLabel}. ¿Cómo coordinamos?`
       : `Hola! Quería saber cuándo va a haber stock de: ${p.name} (${p.sku}). ¿Me podés avisar?`;
 
     const href = waLink(orderText);
 
+    const tagClass = p.tag === 'Liquidación' ? 'product__tag product__tag--liquidacion' : 'product__tag';
     const tagHtml = !p.inStock
       ? `<span class="product__tag product__tag--out">Agotado</span>`
-      : (p.tag ? `<span class="product__tag">${p.tag}</span>` : "");
+      : (p.tag ? `<span class="${tagClass}">${p.tag}</span>` : "");
 
     const btnText = p.inStock ? "Pedir" : "Avisame";
     const stockLabel = p.inStock ? "STOCK" : "SIN STOCK";
@@ -1814,7 +1841,7 @@ function renderProducts(products) {
         <h3 class="product__name">${p.name}</h3>
         <p class="product__desc">${p.desc}</p>
         <div class="product__foot">
-          <div class="product__price"><small>ARS</small>${formatPrice(p.price)}</div>
+          <div class="product__price"><small>${p.currency || 'ARS'}</small>${p.currency === 'USD' ? p.price : formatPrice(p.price)}</div>
           <a class="product__btn" href="${href}" target="_blank" rel="noopener">
             ${btnText}
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14m-7-7l7 7-7 7"/></svg>
