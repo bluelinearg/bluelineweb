@@ -49,7 +49,7 @@
     "price": 25000,
     "inStock": true,
     "tag": "Liquidación",
-    "images": ["img/casaca-firstar-negro.png", "img/casaca-firstar-rojo.png", "img/casaca-firstar-talles.png"],
+    "images": ["img/casaca-firstar-negro.png", "img/casaca-firstar-rojo.png"],
     "colors": [
       {"label": "Negro", "img": "img/casaca-firstar-negro.png", "bg": "#111"},
       {"label": "Rojo", "img": "img/casaca-firstar-rojo.png", "bg": "#cc0000"}
