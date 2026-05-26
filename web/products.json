@@ -63,8 +63,8 @@
     "desc": "Palo de hockey en excelente estado (usado). Top de línea de CCM. Flex 65 · Pala P28 · Altura 161 cm.",
     "price": 300,
     "currency": "USD",
-    "inStock": true,
-    "stock": 1,
+    "inStock": false,
+    "stock": 0,
     "tag": "",
     "images": ["img/ccm-trigger9.png", "img/ccm-trigger9-pala.png"]
   }
